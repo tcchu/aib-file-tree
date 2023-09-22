@@ -89,7 +89,7 @@ function App() {
 
   return (
     <>
-      <FileTree data={data} />
+      <FileTree data={data} level={0} />
     </>
   );
 }

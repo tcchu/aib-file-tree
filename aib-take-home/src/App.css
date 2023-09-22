@@ -2,11 +2,42 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
+  text-align: left;
 }
 
 .icon {
   width: 1em;
   height: 1em;
   vertical-align: middle;
+}
+
+/* .file-tree-container {
+  border-radius: 4px;
+} */
+
+/* .child-container {
+  max-height: 200px;
+  overflow: auto;
+} */
+
+.tree-item {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.level-0 {
+  padding-left: 0px;
+}
+
+.level-1 {
+  padding-left: 8px;
+}
+
+.level-2 {
+  padding-left: 16px;
+}
+
+.level-3 {
+  padding-left: 24px;
 }
