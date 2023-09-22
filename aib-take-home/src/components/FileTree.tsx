@@ -30,6 +30,11 @@ const FileTree: React.FC<FileTreeProps> = ({ data, level }) => {
     setIsOpen(!isOpen);
   };
 
+  const getItemIndentation = (level: number) => {
+    const levelIndentation = level * 16;
+    return levelIndentation;
+  };
+
   return (
     <div>
       <div
@@ -40,7 +45,7 @@ const FileTree: React.FC<FileTreeProps> = ({ data, level }) => {
           display: "flex",
           gap: "8px",
           alignItems: "center",
-          paddingLeft: `${level * 16}px`,
+          paddingLeft: `${getItemIndentation(level)}px`,
         }}
         className={`tree-item level-${level}`}
       >
@@ -75,7 +80,7 @@ const FileTree: React.FC<FileTreeProps> = ({ data, level }) => {
                     display: "flex",
                     gap: "8px",
                     alignItems: "center",
-                    paddingLeft: `${level * 16}px`,
+                    paddingLeft: `${getItemIndentation(level + 1)}px`,
                   }}
                 >
                   <img src={file} alt="file" className="icon" />
