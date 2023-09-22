@@ -47,7 +47,6 @@ const FileTree: React.FC<FileTreeProps> = ({ data, level }) => {
           alignItems: "center",
           paddingLeft: `${getItemIndentation(level)}px`,
         }}
-        className={`tree-item level-${level}`}
       >
         {isOpen ? (
           <span style={{ display: "flex", gap: "2px", alignItems: "center" }}>
@@ -75,7 +74,6 @@ const FileTree: React.FC<FileTreeProps> = ({ data, level }) => {
               return (
                 <div
                   key={child.name}
-                  className={`tree-item level-${level + 1}`}
                   style={{
                     display: "flex",
                     gap: "8px",

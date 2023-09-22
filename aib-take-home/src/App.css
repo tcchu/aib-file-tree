@@ -19,25 +19,3 @@
   max-height: 200px;
   overflow: auto;
 } */
-
-.tree-item {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-}
-
-.level-0 {
-  padding-left: 0px;
-}
-
-.level-1 {
-  padding-left: 8px;
-}
-
-.level-2 {
-  padding-left: 16px;
-}
-
-.level-3 {
-  padding-left: 24px;
-}
