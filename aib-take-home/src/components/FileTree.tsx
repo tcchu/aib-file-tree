@@ -21,13 +21,34 @@ interface Child {
 interface FileTreeProps {
   data: Directory;
   level: number;
+  selectedDirectory: null | string;
+  setSelectedDirectory: (name: null | string) => void;
+  selectedFile: null | string;
+  setSelectedFile: (name: null | string) => void;
 }
 
-const FileTree: React.FC<FileTreeProps> = ({ data, level }) => {
+const FileTree: React.FC<FileTreeProps> = ({
+  data,
+  level,
+  selectedDirectory,
+  setSelectedDirectory,
+  selectedFile,
+  setSelectedFile,
+}) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const toggleAccordion = () => {
     setIsOpen(!isOpen);
+  };
+
+  const toggleSelection = () => {
+    if (selectedDirectory === data.name || selectedFile === data.name) {
+      setSelectedDirectory(data.name);
+      setSelectedFile(data.name);
+    } else {
+      setSelectedDirectory(data.name);
+      setSelectedFile(data.name);
+    }
   };
 
   const getItemIndentation = (level: number) => {
@@ -39,13 +60,18 @@ const FileTree: React.FC<FileTreeProps> = ({ data, level }) => {
     <div>
       <div
         key={data.name}
-        onClick={toggleAccordion}
+        onClick={() => {
+          toggleAccordion();
+          toggleSelection();
+        }}
         style={{
           cursor: "pointer",
           display: "flex",
           gap: "8px",
           alignItems: "center",
           paddingLeft: `${getItemIndentation(level)}px`,
+          background:
+            selectedDirectory === data.name ? "#3A3A3A" : "transparent",
         }}
       >
         {isOpen ? (
@@ -67,7 +93,14 @@ const FileTree: React.FC<FileTreeProps> = ({ data, level }) => {
             if (child.kind === "directory") {
               return (
                 <div key={child.name}>
-                  <FileTree data={child as Directory} level={level + 1} />
+                  <FileTree
+                    data={child as Directory}
+                    level={level + 1}
+                    selectedDirectory={selectedDirectory}
+                    setSelectedDirectory={setSelectedDirectory}
+                    selectedFile={selectedFile}
+                    setSelectedFile={setSelectedFile}
+                  />
                 </div>
               );
             } else {
@@ -75,10 +108,15 @@ const FileTree: React.FC<FileTreeProps> = ({ data, level }) => {
                 <div
                   key={child.name}
                   style={{
+                    cursor: "pointer",
                     display: "flex",
                     gap: "8px",
                     alignItems: "center",
                     paddingLeft: `${getItemIndentation(level + 1)}px`,
+                    background:
+                      selectedDirectory === child.name
+                        ? "#3A3A3A"
+                        : "transparent",
                   }}
                 >
                   <img src={file} alt="file" className="icon" />

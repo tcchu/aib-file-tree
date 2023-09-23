@@ -1,5 +1,6 @@
 import "./App.css";
 import FileTree from "./components/FileTree";
+import { useState } from "react";
 
 function App() {
   const data = {
@@ -87,9 +88,22 @@ function App() {
     ],
   };
 
+  const [selectedDirectory, setSelectedDirectory] = useState<string | null>(
+    null
+  );
+
+  const [selectedFile, setSelectedFile] = useState<string | null>(null);
+
   return (
     <>
-      <FileTree data={data} level={0} />
+      <FileTree
+        data={data}
+        level={0}
+        selectedDirectory={selectedDirectory}
+        setSelectedDirectory={setSelectedDirectory}
+        selectedFile={selectedFile}
+        setSelectedFile={setSelectedFile}
+      />
     </>
   );
 }

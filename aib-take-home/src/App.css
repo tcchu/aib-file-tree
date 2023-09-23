@@ -11,6 +11,9 @@
   vertical-align: middle;
 }
 
+.selected {
+  background-color: #3a3a3a;
+}
 /* .file-tree-container {
   border-radius: 4px;
 } */
