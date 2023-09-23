@@ -42,12 +42,12 @@ const FileTree: React.FC<FileTreeProps> = ({
   };
 
   const toggleSelection = () => {
-    if (selectedDirectory === data.name || selectedFile === data.name) {
+    if (data.kind === "directory") {
       setSelectedDirectory(data.name);
-      setSelectedFile(data.name);
+      setSelectedFile(null);
     } else {
-      setSelectedDirectory(data.name);
       setSelectedFile(data.name);
+      setSelectedDirectory(null);
     }
   };
 
@@ -107,6 +107,10 @@ const FileTree: React.FC<FileTreeProps> = ({
               return (
                 <div
                   key={child.name}
+                  onClick={() => {
+                    setSelectedFile(child.name);
+                    setSelectedDirectory(null);
+                  }}
                   style={{
                     cursor: "pointer",
                     display: "flex",
@@ -114,9 +118,7 @@ const FileTree: React.FC<FileTreeProps> = ({
                     alignItems: "center",
                     paddingLeft: `${getItemIndentation(level + 1)}px`,
                     background:
-                      selectedDirectory === child.name
-                        ? "#3A3A3A"
-                        : "transparent",
+                      selectedFile === child.name ? "#3A3A3A" : "transparent",
                   }}
                 >
                   <img src={file} alt="file" className="icon" />
