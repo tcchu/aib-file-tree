@@ -1,5 +1,5 @@
 #root {
-  max-width: 1280px;
+  max-width: 1920px;
   margin: 0 auto;
   padding: 2rem;
   text-align: left;
@@ -14,11 +14,3 @@
 .selected {
   background-color: #3a3a3a;
 }
-/* .file-tree-container {
-  border-radius: 4px;
-} */
-
-/* .child-container {
-  max-height: 200px;
-  overflow: auto;
-} */
