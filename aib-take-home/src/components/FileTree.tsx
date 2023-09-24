@@ -4,6 +4,7 @@ import rightArrowIcon from "../assets/angle-right-light.svg";
 import openFolder from "../assets/folder-open-solid.svg";
 import closedFolder from "../assets/folder-solid.svg";
 import file from "../assets/file-code-solid.svg";
+import "./FileTree.css";
 
 interface Directory {
   name: string;
@@ -64,14 +65,11 @@ const FileTree: React.FC<FileTreeProps> = ({
           toggleAccordion();
           toggleSelection();
         }}
+        className={`tree-item ${
+          selectedDirectory === data.name ? "tree-item-selected" : ""
+        }`}
         style={{
-          cursor: "pointer",
-          display: "flex",
-          gap: "8px",
-          alignItems: "center",
           paddingLeft: `${getItemIndentation(level)}px`,
-          background:
-            selectedDirectory === data.name ? "#3A3A3A" : "transparent",
         }}
       >
         {isOpen ? (
@@ -111,14 +109,11 @@ const FileTree: React.FC<FileTreeProps> = ({
                     setSelectedFile(child.name);
                     setSelectedDirectory(null);
                   }}
+                  className={`tree-item ${
+                    selectedFile === child.name ? "tree-item-selected" : ""
+                  }`}
                   style={{
-                    cursor: "pointer",
-                    display: "flex",
-                    gap: "8px",
-                    alignItems: "center",
                     paddingLeft: `${getItemIndentation(level + 1)}px`,
-                    background:
-                      selectedFile === child.name ? "#3A3A3A" : "transparent",
                   }}
                 >
                   <img src={file} alt="file" className="icon" />

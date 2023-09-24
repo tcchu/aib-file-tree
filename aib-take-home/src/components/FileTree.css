@@ -1,0 +1,10 @@
+.tree-item {
+  cursor: pointer;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.tree-item-selected {
+  background: #3a3a3a;
+}
