@@ -74,4 +74,4 @@ Vice-versa will occur when directory changes from expanded to collapsed.
    - The recursive approach provides less control due to the nature of having limited control over the call stack, where each recursive function call pushes a new stack frame onto the call stack. However,  
      the rationale for going with the recursive approach is to make the code more readable.
 
-2. Create a reusable for component for rendering icons
+2. Create a reusable component for rendering icons
