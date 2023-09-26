@@ -18,9 +18,8 @@
 <p align="left">
 File Tree UI component that allows the user to browse a directory structure and interact with files and folders.
 </p>
-<p align="center">
-  <img  src="https://raw.githubusercontent.com/tcchu/aib-take-home/main/src/media/file-tree.gif" width=90% >
-</p>
+
+![Animated GIF](./src/media/file-tree-2.gif)
 
 ## <b>Installation / Getting Started</b>
 
