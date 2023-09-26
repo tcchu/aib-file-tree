@@ -38,7 +38,7 @@ Perform the following steps to install aib-take-home locally:
    npm run dev
    ```
 
-## <b>Design / Engineering Decisions </b>
+## <b>Design / Engineering Decisions</b>
 
 **1. Using recursive calls for FileTree component**
 
