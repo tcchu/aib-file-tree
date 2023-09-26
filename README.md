@@ -8,7 +8,7 @@
   <ol>
     <li><a href="#overview">Overview</a></li>
     <li><a href="#installation--getting-started">Installation / Getting Started</a></li>
-    <li><a href="#design-decisions">Design Decisions</a></li>
+    <li><a href="#design--engineering decisions">Design / Engineering Decisions</a></li>
     <li><a href="#potential-improvements">Potential Improvements</a></li>
   </ol>
 </details>
@@ -31,18 +31,34 @@ Perform the following steps to install aib-take-home locally:
 npm run dev
 ```
 
-## <b>Design Decisions </b>
+## <b>Design / Engineering Decisions </b>
 
-### Engineering design decisions
+**1. Using recesurive calls for FileTree component**
 
-1. Using recesurive calls for FileTree component
+**Rationale:**<br> File trees typically are hierarchical and have nested levels. Using recursive calls for the FileTree component allows rendering of the file tree structure dynamically regardless of how deep the tree is, making the component reusable for other contexts.
+<br>
+<br>
 
-   Rationale: File trees typically are hierarchical and have nested levels. Using recursive calls for the FileTree component allows rendering of the file tree structure dynamically regardless of how deep the tree is, making the component reusable for other contexts.
+**2. Managing state of selected directory and selected file**
 
-2. Managing state for `selectedFile` and `selectedDirectory` using useState within App.tsx versus FileTree.tsx.
+**Rationale:**<br> Managing the state of selected directory and selected file is for tracking user interaction, to provide user feedback by highlighting the selected directory or file within the tree. By managing the state of selected directory separate from selected file, the application can handle user actions with more customizability between selecting files or directories.  
+<br>
+<br>
+**3. Managing state for `selectedFile` and `selectedDirectory` using useState within App.tsx versus FileTree.tsx.**
 
-   Rationale: The 'FileTree' component is used recursively to render subdirectories and files within directories. Each instance of 'FileTree' component needs access to the same `selectedFile` and `selectedDirectory` state, to maintain consistent selection across entire tree. Managing state in higher-level component App.tsx, ensures all instances of 'FileTree' have access to the same state.
+**Rationale:**<br> The 'FileTree' component is used recursively to render subdirectories and files within directories. Each instance of 'FileTree' component needs access to the same `selectedFile` and `selectedDirectory` state, to maintain consistent selection across entire tree. Managing state in higher-level component App.tsx, ensures all instances of 'FileTree' have access to the same state.
+<br>
+<br>
 
-### UI design decisions
+**4. Visual cues for collapsed or expanded directories (folders)**
+
+**Rationale:**<br> To ensure the UI is intuitive and usable, when directory changes from collapsed to expanded, the following will occur:
+
+- the caret icon will change from pointing rightward to downward
+- the folder icon will change from closed to open
+
+Vice-versa will occur when directory changes from expanded to collapsed.
 
 ## <b>Potential Improvements</b>
+
+1. Create a reuseable for component for rendering icons
