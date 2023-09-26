@@ -18,6 +18,9 @@
 <p align="left">
 File Tree UI component that allows the user to browse a directory structure and interact with files and folders.
 </p>
+<p align="center">
+  <img  src="https://raw.githubusercontent.com/tcchu/aib-take-home/main/src/media/file-tree.gif" width=90% >
+</p>
 
 ## <b>Installation / Getting Started</b>
 
@@ -25,11 +28,16 @@ Perform the following steps to install aib-take-home locally:
 
 1. Clone this AiB Take Home repository onto your local machine.
 2. Open aib-take-home repo in VS Code or your favorite IDE.
-3. Navigate to src folder and run the following command in terminal:
+3. In the root folder, install dependencies by running the command:
 
-```
-npm run dev
-```
+   ```
+   npm install
+   ```
+
+4. Then run the following command to start up the development server for the project:
+   ```
+   npm run dev
+   ```
 
 ## <b>Design / Engineering Decisions </b>
 
@@ -61,4 +69,10 @@ Vice-versa will occur when directory changes from expanded to collapsed.
 
 ## <b>Potential Improvements</b>
 
-1. Create a reuseable for component for rendering icons
+1. Instead of using the recursive approach, an iterative approach can be used instead to traverse through the file tree.
+
+   - The iterative approach allows you to create an explicit stack giving you more control of when and how items (directories or files) are pushed and popped from the stack.
+   - The recursive approach provides less control due to the nature of having limited control over the call stack, where each recursive function call pushes a new stack frame onto the call stack. However,  
+     the rationale for going with the recursive appraoch is to make the code more readable.
+
+2. Create a reuseable for component for rendering icons
