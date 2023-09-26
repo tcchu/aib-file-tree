@@ -8,7 +8,7 @@
   <ol>
     <li><a href="#overview">Overview</a></li>
     <li><a href="#installation--getting-started">Installation / Getting Started</a></li>
-    <li><a href="#design--engineering decisions">Design / Engineering Decisions</a></li>
+    <li><a href="#design--engineering-decisions">Design / Engineering Decisions</a></li>
     <li><a href="#potential-improvements">Potential Improvements</a></li>
   </ol>
 </details>
@@ -40,7 +40,7 @@ Perform the following steps to install aib-take-home locally:
 
 ## <b>Design / Engineering Decisions </b>
 
-**1. Using recesurive calls for FileTree component**
+**1. Using recursive calls for FileTree component**
 
 **Rationale:**<br> File trees typically are hierarchical and have nested levels. Using recursive calls for the FileTree component allows rendering of the file tree structure dynamically regardless of how deep the tree is, making the component reusable for other contexts.
 <br>
@@ -72,6 +72,6 @@ Vice-versa will occur when directory changes from expanded to collapsed.
 
    - The iterative approach allows you to create an explicit stack giving you more control of when and how items (directories or files) are pushed and popped from the stack.
    - The recursive approach provides less control due to the nature of having limited control over the call stack, where each recursive function call pushes a new stack frame onto the call stack. However,  
-     the rationale for going with the recursive appraoch is to make the code more readable.
+     the rationale for going with the recursive approach is to make the code more readable.
 
-2. Create a reuseable for component for rendering icons
+2. Create a reusable for component for rendering icons
