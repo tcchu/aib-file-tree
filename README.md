@@ -1,5 +1,5 @@
 <p align="center">
-  <h1 align="center"><b>AiB Take Home: File Tree Component</b></h1>
+  <h1 align="center"><b>AiB: File Tree Component</b></h1>
 </p>
   
 <!-- TABLE OF CONTENTS -->
